@@ -1,28 +1,27 @@
+//by Luca Fu
+ 
+
+
 // constants to set up the environment
-
-const CANVAS_WIDTH = 500;
-
-const CANVAS_HEIGHT = 500;
-
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 800;
 const BACKGROUND_COLOR = 'lightblue';
 
+// variables to hold the players location
+var playerX = 400;
+var playerY = 400;
 
-
-// location of the player
-
-var playerX = 100;
-
-var playerY = 50;
-
-var name = "sam";
-
+/*
+	The setup function runs once when the program starts.
+ */
 function setup() {
   createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-  //fill('grey');
-  //arc(200, 50, 100, 80, 0, PI, CHORD);
 }
 
-// loops forever
+/*
+	 The draw function loops over and over until the program stops
+	 or when noLoop() is called.
+ */
 function draw() {
   // Draw background
   background(BACKGROUND_COLOR);
@@ -32,27 +31,30 @@ function draw() {
   
   // Player movement
   if (keyIsDown(LEFT_ARROW)) {
-    playerX--;
+    playerX-=25;
+		 
   }
 
   else if (keyIsDown(RIGHT_ARROW)) {
-    playerX++;
+    playerX+=25;
+		
   }
 
   else if (keyIsDown(UP_ARROW)) {
-    playerY--;
+    playerY-=25;
   }
 
   else if (keyIsDown(DOWN_ARROW)) {
-    playerY++;
+    playerY+=25;
+
   }
 }
 
-// draws a snowman
+/*
+	This function draw the player on the screen at pX, pY.
+ */
 function drawPlayer(pX, pY) {
-  //replace this...
-  
-	noStroke();
+  noStroke();
   fill('white');
   
   // body
@@ -68,4 +70,14 @@ function drawPlayer(pX, pY) {
   // nose
   fill('orange');
   triangle(pX, pY, pX+10, pY+5, pX-10, pY+10);
+	
+	fill('green')
+	rect(0, 600, 800, 200)
+	
+	fill('white')
+	ellipse(200, 100, 200, 100)
+
+	fill('white')
+	ellipse(600, 100, 200, 100)
+	
 }
